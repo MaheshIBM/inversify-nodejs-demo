@@ -4,7 +4,7 @@ import { Container } from 'inversify';
 import * as bodyParser from 'body-parser';
 import './controllers/home'
 import './controllers/users'
-import * as morgan from 'morgan'
+import morgan from 'morgan'
 import { TYPES } from "./const/types";
 import { ConfigProvider }  from './config'
 import { AppLogger } from './logging/logger'

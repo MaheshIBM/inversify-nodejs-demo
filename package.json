@@ -4,12 +4,12 @@
   "description": "",
   "main": "dist/bootstrap.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev-start": "ts-node bootstrap.ts",
     "prestart": "npm run build",
     "build": "tsc -p tsconfig.json",
     "start:watch": "nodemon",
-    "start": "node ."
+    "start": "node .",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -24,11 +24,25 @@
   },
   "devDependencies": {
     "@types/body-parser": "^1.17.1",
+    "@types/jest": "^24.0.18",
     "@types/morgan": "^1.7.37",
-    "nodemon": "^1.19.3"
+    "@types/node": "^12.7.12",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.3",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
   },
-  "nodemonConfig": { 
-    "ignore": ["**/*.test.ts","**/*.spec.ts",".git","node_modules"],
-    "watch": ["src"],"exec": "npm start","ext": "ts"
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "npm start",
+    "ext": "ts"
   }
 }
