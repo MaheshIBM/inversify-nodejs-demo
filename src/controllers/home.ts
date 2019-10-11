@@ -1,14 +1,16 @@
 import { controller, httpGet } from 'inversify-express-utils';
 import { inject } from 'inversify';
 import { AppLogger } from '../logging/logger';
+import { Logger } from 'log4js';
+import { TYPES } from '../const/types';
 
 @controller('/')
 export class HomeController {
 
-    private logger;
+    private logger: Logger;
 
-    constructor(@inject(AppLogger) logger:AppLogger){
-        this.logger = logger.getLogger()
+    constructor(@inject(TYPES.logger) logger:Logger){
+        this.logger = logger;
     }
 
     @httpGet('/')

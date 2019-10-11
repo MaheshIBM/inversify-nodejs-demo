@@ -9,10 +9,16 @@ import { TYPES } from "./const/types";
 import { ConfigProvider }  from './config'
 import { AppLogger } from './logging/logger'
 import { LoggerStreamAdapter } from './middleware/loggerStreamAdapter'
+import { Logger, getLogger, configure } from 'log4js';
 
 let container = new Container();
 container.bind(TYPES.CONFIG).toConstantValue(new ConfigProvider().getConfig())
 container.bind<AppLogger>(AppLogger).toSelf()
+container.bind<Logger>(TYPES.logger).toDynamicValue(context => {
+  configure(new ConfigProvider().getConfig().logging);
+  return getLogger()
+})
+
 const appLogger = new AppLogger(new ConfigProvider().getConfig()).getLogger()
 
 let server = new InversifyExpressServer(container);
