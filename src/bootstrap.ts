@@ -34,5 +34,5 @@ server.setConfig((app) => {
   });
 
 let serverInstance = server.build();
-serverInstance.listen(3001);
-console.log('Server started on port 3001, mostly at http://localhost:3001');
+serverInstance.listen(80);
+console.log('Server started on port 80, mostly at http://localhost');
